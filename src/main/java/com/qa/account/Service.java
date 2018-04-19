@@ -16,7 +16,6 @@ public class Service {
 		} else {
 			accountMap.put(account.getaccountNumber(), account);
 		}
-		//
 
 	}
 
@@ -37,18 +36,13 @@ public class Service {
 		return accountMap;
 	}
 
-	// public static int searchMapForName() {
-	// for(int i=0; i<.size();i++) {
-	// return 0;
-	// }
 	public static int searchMapForName(String name, HashMap<Integer, Account> accountMap){
 	
-		Set<Map.Entry<Integer, Account>> entryAccounts = accountMap.entrySet();
-	    for(Map.Entry<Integer, Account> entry : entryAccounts) {
+		Set<Map.Entry<Integer, Account>> entries = accountMap.entrySet();
+	    for(Map.Entry<Integer, Account> entry : entries) {
 	        
 	    	if(entry.getValue().getfirstName().equals(name)) {
 	    		counter++;
-	    		
 	    	}
 	    }
 	    return counter;
@@ -58,8 +52,6 @@ public class Service {
 		this.accountMap = accountMap;
 	}
 	
-	
 
-	//
 }
 
