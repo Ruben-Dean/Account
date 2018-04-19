@@ -1,6 +1,8 @@
 package com.qa.test;
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,8 +24,8 @@ public class AccountTest {
 	
 	@Test
 	public void addAccountTest() {
-		Account Ruben = new Account("Ruben","Caldeira",333);
-		service.addAccount(Ruben);
+		Account ruben = new Account("Ruben","Caldeira",333);
+		service.addAccount(ruben);
 		Integer expectedValue =1;
 		Integer actualValue =service.getAccountMap().size();
 		assertEquals(expectedValue,actualValue);
@@ -31,8 +33,8 @@ public class AccountTest {
 	
 	@Test
 	public void JSONconversionTest() {
-		Account Ruben = new Account("Ruben","Caldeira",333);
-		service.addAccount(Ruben);
+		Account ruben = new Account("Ruben","Caldeira",333);
+		service.addAccount(ruben);
 		Json ju = new Json();
 		String expectedValue = "{\"1\":{\"firstName\":\"Ruben\",\"lastName\":\"Caldeira\",\"accountNumber\":333}}";
 		String actualValue = ju.getJSONForObject(service.getAccountMap());
@@ -42,11 +44,15 @@ public class AccountTest {
 	
 	@Test
 	public void searchMapForNameTest() {
-		Account Ruben = new Account("Ruben", "Caldeira", 333);
-		service.addAccount(Ruben);
-		int expectedValue = 1;
-		int actualValue = service.searchMapForName();
-		System.out.println(service.searchMapForName());
+		Account ruben = new Account("Ruben", "Caldeira", 333);
+		Account ruben2 = new Account("Ruben", "Caldeira", 332);
+		Account ruben3 = new Account("Ruben", "Caldeira", 331);
+		service.addAccount(ruben);
+		service.addAccount(ruben2);
+		service.addAccount(ruben3);
+		HashMap <Integer, Account> myMap = service.getAccountMap();
+		int expectedValue = 3;
+		int actualValue = service.searchMapForName("Ruben", myMap);
 		assertEquals(expectedValue,actualValue);
 		
 		
