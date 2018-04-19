@@ -22,5 +22,4 @@ private  Gson gson;
 	}
 	
 	
-	
 }

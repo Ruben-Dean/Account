@@ -2,10 +2,6 @@ package com.qa.account;
 
 import java.util.HashMap;
 
-
-
-
-
 public class Service {
 	
 private HashMap<Integer,Account> accountMap  = new HashMap<Integer, Account>();
@@ -17,7 +13,7 @@ private HashMap<Integer,Account> accountMap  = new HashMap<Integer, Account>();
 		else {
 			accountMap.put(account.getaccountNumber(),account);
 		}
-		
+		//
 		
 	}
 	public Account getAccount(Integer accountNumber) {
@@ -31,11 +27,20 @@ private HashMap<Integer,Account> accountMap  = new HashMap<Integer, Account>();
 		else {
 			System.out.println("This account does not exsit");
 		}
+		
+		
+		
 	}
 	public HashMap<Integer, Account> getAccountMap(){
 		return accountMap;
 	}
+	public static int searchMapForName() {
+		
+		return 0;
+	}
 	
 	
-//	
+	
+//
 }
+	
